@@ -1,6 +1,4 @@
-//Choosing a random choice
 let choices = ['Rock', 'Paper', 'Scissors'];
-let computerChoice = choices[Math.floor(Math.random() * 3)];
 
 let rock = document.getElementById('rock');
 let paper = document.getElementById('paper');
@@ -17,11 +15,12 @@ playagain.addEventListener('click',repeat);
 //Computing result
 function checkResult(playerChoice){
     //Disabling the buttons
-    rock.classList = 'btn btn-block btn-dark square disabled';
-    paper.classList = 'btn btn-block btn-dark square disabled';
-    scissors.classList = 'btn btn-block btn-dark square disabled';
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
 
-    //Displaying computer's choice
+    //Computing computer's choice
+    let computerChoice = choices[Math.floor(Math.random() * 3)];
     document.getElementById('opponent').innerHTML = `Computer chose ${computerChoice}`;
 
     if(computerChoice == playerChoice){
